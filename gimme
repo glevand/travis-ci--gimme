@@ -44,6 +44,7 @@
 #+     GIMME_DOWNLOAD_BASE - override base URL dir for download (default '${GIMME_DOWNLOAD_BASE}')
 #+        GIMME_LIST_KNOWN - override base URL for known go versions (default '${GIMME_LIST_KNOWN}')
 #+   GIMME_KNOWN_CACHE_MAX - seconds the cache for --known is valid for (default '${GIMME_KNOWN_CACHE_MAX}')
+#+   GIMME_NO_OPTIMIZATION - build go compiler with GO_GCFLAGS=\"-N -l\" (default '${GIMME_NO_OPTIMIZATION}')
 #+  -
 #
 set -e
@@ -325,6 +326,9 @@ _compile() {
 		export GOOS="${GIMME_OS}" GOARCH="${GIMME_ARCH}"
 		export CGO_ENABLED="${GIMME_CGO_ENABLED}"
 		export CC_FOR_TARGET="${GIMME_CC_FOR_TARGET}"
+		if [[ ${GIMME_NO_OPTIMIZATION} ]]; then
+			export GO_GCFLAGS="-N -l"
+		fi
 
 		local make_log="${1}/make.${GOOS}.${GOARCH}.log"
 		if [[ "${GIMME_DEBUG}" -gt "1" ]]; then
