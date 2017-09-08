@@ -1,0 +1,7 @@
+================================================================================
+rm -rf ~/.gimme
+GIMME_GO_VERSION=1.9.1 GIMME_DEBUG=1 GIMME_CGO_ENABLED=1 ./gimme
+GIMME_GO_VERSION=1.8.3 GIMME_DEBUG=1 GIMME_CGO_ENABLED=1 ./gimme
+GIMME_GO_VERSION=1.9.1 GIMME_VERSION_PREFIX=~/.gimme/arm64/versions GIMME_ARCH=arm64 GIMME_ENV_PREFIX=~/.gimme/arm64/envs GIMME_DEBUG=1 GIMME_CGO_ENABLED=1 GIMME_CC_FOR_TARGET=aarch64-linux-gnu-gcc ./gimme
+GIMME_GO_VERSION=1.8.3 GIMME_VERSION_PREFIX=~/.gimme/arm64/versions GIMME_ARCH=arm64 GIMME_ENV_PREFIX=~/.gimme/arm64/envs GIMME_DEBUG=1 GIMME_CGO_ENABLED=1 GIMME_CC_FOR_TARGET=aarch64-linux-gnu-gcc ./gimme
+================================================================================
